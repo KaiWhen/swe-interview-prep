@@ -31,6 +31,18 @@
 - C allows for more control over memory management and can be faster in certain scenarios.
 - C++ introduces additional features like object-oriented programming and templates, which may not be necessary for all projects.
 
+## Define 'std'
+
+The command “using namespace std” informs the compiler to add everything under the std namespace and inculcate them in the global namespace.
+
+## What are references in C++?
+
+When a variable is described as a reference it becomes an alias of the already existing variable.
+
+Syntax:
+`int GFG = 10;
+int& ref = GFG;`
+
 # Other
 
 ## How would you clear the 7th bit in a 32 bit register?
