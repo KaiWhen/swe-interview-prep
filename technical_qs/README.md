@@ -40,8 +40,33 @@ The command “using namespace std” informs the compiler to add everything und
 When a variable is described as a reference it becomes an alias of the already existing variable.
 
 Syntax:
-`int GFG = 10;
-int& ref = GFG;`
+`int foo = 10;
+int& ref = foo;`
+
+## Stack vs Heap Memory Allocation
+
+1. Stack memory is allocated in a contiguous block while heap memory is allocated in any random order.
+2. In a stack, the allocation and de-allocation are automatically done by the compiler whereas, in heap, it needs to be done by the programmer manually.
+3. Handling the Heap frame is costlier than handling the stack frame.
+4. Memory shortage problem is more likely to happen in stack whereas the main issue in heap memory is fragmentation.
+5. Stack frame access is easier than the heap frame as the stack has a small region of memory and is cache-friendly but in the case of heap frames which are dispersed throughout the memory so it causes more cache misses.
+6. A stack is not flexible, the memory size allotted cannot be changed whereas a heap is flexible, and the allotted memory can be altered.
+7. Accessing the time of heap takes is more than a stack.
+
+## What is the difference between struct and class?
+
+- Structs are of the value type. They only hold value in memory, while classes are of reference type. It holds a reference of an object in memory.
+- Struct memory is stored as stacks while class memory is stored as heaps.
+
+## What is the difference between reference and pointer?
+
+- Value of ref cannot be reassigned while value of pointer can.
+- Ref can't hole a null value while pointer can point to null.
+- Ref can't work with arrays while pointers can.
+- Ref: to access the members of class/struct it uses a '.' | Pointer: uses a '->'
+- The memory location of reference can be accessed easily while memory location of pointer have to use a dereference '*'.
+
+## 
 
 # Other
 
@@ -57,3 +82,7 @@ Object-oriented programming aims to implement real-world entities like inheritan
 - The main aim and benefit of OOP is to bind together the data and the functions that operate on them so that no other part of the code can access this data except that function.
 - We can build the programs from standard working modules that communicate with one another, rather than having to start writing the code from scratch which leads to saving of development time and higher productivity.
 - It is possible that multiple instances of objects co-exist without any interference
+
+## Explain inheritance
+
+The capability or ability of a class to derive properties and characteristics from another class.
