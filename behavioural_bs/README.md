@@ -14,3 +14,10 @@ During my internship, I was working on a connectivity monitor action script, whi
 
 what is this an osu question?
 
+## How do you approach goal-setting?
+
+I like to create SMART goals, where I would outline the goal and set targets. I would then outline a measurement that would indicate that I have reached the goal.
+
+## Tell me about a time when you had a conflict with a coworker/team member. How did you navigate the situation?
+
+idfk man
