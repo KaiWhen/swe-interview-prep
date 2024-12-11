@@ -20,4 +20,12 @@ I like to create SMART goals, where I would outline the goal and set targets. I 
 
 ## Tell me about a time when you had a conflict with a coworker/team member. How did you navigate the situation?
 
-idfk man
+In my 3rd year software engineering project we had to make a 
+
+## What is your greatest weakness?
+
+My greatest weakness is probably my timidness, it can be hard for me to speak up in meetings sometimes but I am willing to practice by asking questions more often.
+
+## What are your strengths?
+
+I am usually a fast-learner, 
