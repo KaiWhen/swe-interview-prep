@@ -1,3 +1,7 @@
+from collections import deque
+from typing import List
+
+
 class Arrays:
     # https://leetcode.com/problems/contains-duplicate/
     def containsDuplicate(self, nums: List[int]) -> bool:
@@ -105,3 +109,103 @@ class Arrays:
             ans.append(d[i])
         
         return ans
+
+
+    # https://leetcode.com/problems/minimum-time-visiting-all-points/
+    def minTimeToVisitAllPoints(self, points: List[List[int]]) -> int:
+        # clarifying q: do we have to start at (0,0) or can we start at the
+        # first point? we can start at first point
+        # Problem: from a list of points, calculate the min distance between first
+        # and last point
+        # Solution: If the next node is +10x and -5y away, it's going to take
+        # exactly 10 steps, because you can only move 1 x at a time and the diff
+        # in y is made up by diagonal moves during the process of overcoming the
+        # difference in x. Time: O(N) Space: O(1)
+        # Note: distance between two points in max difference of one coord
+
+        res = 0
+        x1, y1 = points.pop()
+        # while points is not empty
+        while points:
+            x2, y2 = points.pop()
+            res += max(abs(y2 - y1), abs(x2 - x1))
+            x1, y1 = x2, y2
+        return res
+    
+
+    # https://leetcode.com/problems/spiral-matrix/
+    def spiralOrder(self, matrix: List[List[int]]) -> List[int]:
+        # Problem: given an m x n matrix, return all elements in spiral order
+        # O(N)
+        ans = []
+        while matrix:
+            #1) add first row/list of matrix
+            ans += (matrix.pop(0))
+
+            #2) append last element of all lists in order
+            if matrix and matrix[0]:
+                for row in matrix:
+                    ans.append(row.pop())
+
+            #3) add reverse of last row/list
+            if matrix:
+                ans += (matrix.pop()[::-1])
+            
+            #4) append first element of all rows/lists in reverse
+            if matrix and matrix[0]:
+                for row in matrix[::-1]:
+                    ans.append(row.pop(0))
+        
+        return ans
+    
+
+    # https://leetcode.com/problems/number-of-islands/
+    def numIslands(self, grid: List[List[str]]) -> int:
+        # Problem: given a 2d m*n grid, where 1 is land and 0 is water,
+        # return the no of islands
+        # Solution: Iterate through and perform DFS or BFS after find a '1'
+        # to mark neighbours as visited, and complete the island. Time & Space:
+        # O(M*N). Visit each cell once during initial iteration and potentially
+        # twice when exploring BFS in each direction (4 - up down left right)
+        # and we do this for M*N vertices. It might help to think of worse case
+        # scenario - matrix is all '1' so we visit every cell and explore every
+        # adjacent cell. For space, it could be we stack/queue the entire grid if 
+        # it is all 1s.
+
+        if not grid:
+            return 0
+        
+        def bfs(r, c):
+            search_q = deque()
+            visited.add((r,c))
+            search_q.append((r,c))
+
+            # once search queue is empty, that means all the surrounding 1s have
+            # been searched i.e. an island was found
+            while search_q:
+                row, col = search_q.popleft()
+                directions = ([1,0], [-1,0], [0,1], [0,-1])
+
+                for dr, dc in directions:
+                    r,c = row-dr, col-dc
+
+                    if (r in range(rows) and c in range(cols) and grid[r][c]=='1' and (r,c) not in visited):
+                        search_q.append((r,c))
+                        visited.add((r,c))
+
+        count = 0
+        rows = len(grid)
+        cols = len(grid[0])
+        visited = set()
+
+        for r in range(rows):
+
+            for c in range(cols):
+                
+                # once we find an unvisited '1' we run bfs and add it to the search
+                # queue to be searched
+                if grid[r][c] == '1' and (r,c) not in visited:
+                    bfs(r,c)
+                    count += 1
+        
+        return count
