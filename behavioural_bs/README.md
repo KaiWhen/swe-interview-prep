@@ -10,10 +10,6 @@ The last time I coordinated with others in a team project was an IoT group proje
 
 During my internship, I was working on a connectivity monitor action script, which was a script written in Python that would monitor the connectivity stats of a network device. To test the script I had to grab a cluster and then be able to stream the connectivity monitor stats of devices to the cluster. Unfortunately I did not know how to stream the connectivity monitor stats so I reached out to another software engineer who already had experience doing it. He walked through it with me and in the end I was able to succesfully stream the connectivity stats to my cluster.
 
-## What are you strongest in, accuracy or speed? Please explain with an example based on your experience.
-
-what is this an osu question?
-
 ## How do you approach goal-setting?
 
 I like to create SMART goals, where I would outline the goal and set targets. I would then outline a measurement that would indicate that I have reached the goal.
