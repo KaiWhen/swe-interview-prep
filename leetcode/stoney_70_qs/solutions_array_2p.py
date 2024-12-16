@@ -100,3 +100,30 @@ class Array2p:
                 ans.appendleft(right*right)
                 r-=1
         return list(ans)
+
+
+    # https://leetcode.com/problems/longest-mountain-in-array/
+    def longestMountain(self, arr: List[int]) -> int:
+        # Problem: given an array, a mountain is composed of at least 3
+        # integers, with an increase and decrease. Find the longest mountain
+        # Solution: Two pointers. Find the peak and send out two pointers.
+        # O(N)-Average O(N^2)-Worst-case, O(1) Space
+        ans = 0
+
+        # start at idx 1 because we are searching the peak
+        for i in range(1, len(arr)-1):
+
+            if arr[i-1] < arr[i] > arr[i+1]:
+                l=r=i
+
+                while l>0 and arr[l] > arr[l-1]:
+                    l-=1
+                    print(l)
+                
+                while r<len(arr)-1 and arr[r] > arr[r+1]:
+                    r+=1
+                    print(r)
+                
+                ans = max(ans, r-l+1)
+        
+        return ans
