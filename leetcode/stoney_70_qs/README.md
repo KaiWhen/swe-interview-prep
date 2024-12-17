@@ -13,3 +13,7 @@
 
 - Variable.sort() - only for lists with no return, permanently changes the variable
 
+### Dynamic Programming
+- Dynamic Programming is a computer programming technique where an algorithmic
+problem is first broken down into sub-problems, the results are saved, and then
+re-used to find a solution efficiently.
