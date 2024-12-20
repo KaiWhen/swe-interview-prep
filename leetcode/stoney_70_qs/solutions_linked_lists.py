@@ -1,3 +1,12 @@
+from typing import Optional
+
+
+class ListNode:
+    def __init__(self, val=0, next=None):
+        self.val = val
+        self.next = next
+
+
 class Solution:
     # https://leetcode.com/problems/middle-of-the-linked-list/
     def middleNode(self, head: Optional[ListNode]) -> Optional[ListNode]:
@@ -52,3 +61,51 @@ class Solution:
             curr = next_pointer
         
         self.head = prev
+    
+
+    # https://leetcode.com/problems/remove-linked-list-elements/
+    def removeElements(self, head: Optional[ListNode], val: int) -> Optional[ListNode]:
+        # Problem: Given the head of a linked list, and integer value, remove all nodes equal to given
+        # value, and return head
+
+        # Solution: O(N) Time, O(1) Space. Using a dummy head helps remove the need to treat head as special case,
+        # and simplifies the code.
+
+        dummy_head = ListNode(-1)
+        dummy_head.next = head
+
+        current_node = dummy_head
+        while current_node.next != None:
+            if current_node.next.val == val:
+                current_node.next = current_node.next.next
+            else:
+                current_node = current_node.next
+        
+        return dummy_head.next
+    
+
+    # https://leetcode.com/problems/reverse-linked-list-ii/
+    def reverseBetween(self, head: Optional[ListNode], left: int, right: int) -> Optional[ListNode]:
+        # Problem: Given the head of a linked list, and two ints left and right, reverse nodes of list from
+        # left to right (1-indexed)
+        
+        # Solution: left_prev, current_node, next_pointer, previous. O(N) Time - one pass, O(1) Space.
+
+        dummy_head = ListNode(-1, head)
+
+        # Set up left = current node and left previous
+        left_prev, current_node = dummy_head, head
+        for i in range(left-1):
+            left_prev, current_node = current_node, current_node.next
+        
+        # Traverse and reverse
+        prev = None
+        for i in range(right - left + 1):
+            next_pointer = current_node.next
+            current_node.next = prev
+            prev, current_node = current_node, next_pointer
+        
+        # Update left prev to point to node after reversals and left node to right node
+        left_prev.next.next = current_node
+        left_prev.next = prev
+        return dummy_head.next

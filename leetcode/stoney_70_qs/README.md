@@ -17,3 +17,10 @@
 - Dynamic Programming is a computer programming technique where an algorithmic
 problem is first broken down into sub-problems, the results are saved, and then
 re-used to find a solution efficiently.
+
+### Heaps
+- Insert: O(log n)
+- Extract Min/Max: O(log n)
+- Peek Min/Max: O(1)
+- Delete: O(log n)
+- Heapify: O(n)
