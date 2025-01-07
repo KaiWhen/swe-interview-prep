@@ -1,4 +1,5 @@
 from collections import defaultdict
+import math
 from typing import List
 
 
@@ -56,6 +57,24 @@ class Solution:
             res += prefix_cnt[remain]
             prefix_cnt[remain] += 1
         return res
+    
+
+    # https://leetcode.com/problems/koko-eating-bananas/
+    def minEatingSpeed(self, piles: List[int], h: int) -> int:
+        def condition(value) -> bool:
+            total = 0
+            for p in piles:
+                total += math.ceil(p/value)
+            return True if total <= h else False
+        
+        left, right = 1, max(piles)
+        while left < right:
+            mid = left + (right - left) // 2
+            if condition(mid):
+                right = mid
+            else:
+                left = mid + 1
+        return left
     
 
 # https://leetcode.com/problems/lru-cache/
