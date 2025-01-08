@@ -60,6 +60,7 @@ class Solution:
     
 
     # https://leetcode.com/problems/koko-eating-bananas/
+    # (Binary Search)
     def minEatingSpeed(self, piles: List[int], h: int) -> int:
         def condition(value) -> bool:
             total = 0
