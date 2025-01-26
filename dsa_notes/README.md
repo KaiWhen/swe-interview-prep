@@ -202,3 +202,18 @@ def topo_sort(graph):
                 q.append(neighbor)
     return res if len(graph) == len(res) else None
 ```
+
+### Kadane's Algorithm
+
+Max Subarray:
+
+```py
+def maxSubArray(self, nums: List[int]) -> int:
+    maxSub, curSum = nums[0], 0
+    for num in nums:
+        if curSum < 0:
+            curSum = 0
+        curSum += num
+        maxSub = max(maxSub, curSum)
+    return maxSub
+```
