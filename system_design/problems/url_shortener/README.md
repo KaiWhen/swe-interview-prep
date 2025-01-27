@@ -42,7 +42,7 @@
     - email
     - date_created
 
-- **LINK**:
+- **Link**:
     - short_url (7 chars)
     - long_url
     - user_id
