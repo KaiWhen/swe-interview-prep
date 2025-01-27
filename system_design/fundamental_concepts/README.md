@@ -60,6 +60,7 @@
     - Between web servers and application servers
     - Between application servers and databases
 - One load balancer could become a single point of failure, so we can add another one for standby.
+- Advantages include scalability, reliability, and performance.
 
 #### Algorithms
 
@@ -69,3 +70,76 @@
     - Directs traffic to the server with the fewest active connections.
 - **Consistent hashing**:
     - Routes requests based on criteria like IP address or URL, useful in maintaining user session consistency.
+
+
+### APIs
+
+- **REST API**:
+    - Allows stateless communication and resource manipulation using standard HTTP methods (GET, POST, PUT, DELETE).
+- **RPC (Remote Procedure Call)**:
+    - Streamlines back-end data exchanges using binary data for lightweight communication.
+- **SOAP (Simple Object Access Protocol)**: 
+    - Uses xml format to ensure high security, suitable for transactions requiring strict compliance.
+- **GraphQL**:
+    - Allows clients to define precisely what data they need, optimizing flexibility and reducing data transfer.
+
+
+### Caching
+
+- Caching speed up data retrieval and is much faster than retrieving data from the database.
+- *CDNs (Content Delievery Network)* are ideal for serving static media, they cache data geographically closer to the user to reduce latency.
+
+#### Types of Caching
+
+- **In-memory cache**: Fast but increases memory usage per server.
+- **Distributed cache**: Shares cache across all servers, e.g., Memcached, Redis.
+- **Database cache**: Caches frequent queries or results.
+- **File system cache**: Uses CDNs to cache files geographically close to users.
+
+#### Caching Policies:
+
+- **FIFO**: Evicts the oldest data first.
+- **LRU**: Removes least recently accessed data.
+- **LFU**: Discards least frequently accessed data.
+
+#### Cache Invalidation Strategies:
+
+- Caching has challenges with maintaining data consistency and making sure the data is in sync with the source of truth.
+
+- **Write-Through**:
+    - Data is written to both cache and storage at the same time ensuring consistency but increasing write latency.
+- **Write-Around**:
+    - Data bypasses the cache and goes directly to the storage preventing cache flooding but potentially increasing read latency for new data.
+- **Write-Back**:
+    - Data is written to cache first and later to storage, offering low latency but risking data loss in case of system failures.
+
+
+### Database: SQL vs NoSQL
+
+#### SQL/Relational Databases
+
+- SQL/Relational databases are structured and handle complex queries and relationships among multiple tables using primary and foreign keys.
+- Difficult to scale horizontally.
+- *ACID Compliance*:
+    - **Atomicity**: Ensures that a transaction is fully completed or not at all.
+    - **Consistency**: Guarantees that a transaction takes a database from one valid state to another, enforcing all defined rules.
+    - **Isolation**: Keeps transactions separate so operations don't interfere with each other.
+    - **Durability**: Ensures that once a transaction is committed it remains permanent even in case of failure.
+- Examples: Amazon RDS, MySQL, PostgreSQL
+
+#### NoSQL/Non-relational Databases
+
+- NoSQL databases are designed for flexibility and have unstructured data.
+- They are good for horizontal scaling and large volumes of data.
+- Diverse data types: Supports documents, key-value pairs, and wide-column stores.
+
+
+### Database Sharding
+
+- Database sharding involves dividing a large database into smaller, more manageable pieces, known as shards, each hosted on separate servers.
+- Improves performance, availability, and scalability.
+
+
+### Database Replication
+
+- Database replication involves copying data from one database to one or more databases. This can safeguard against data loss during failures, improve data access speed for users in different geographical locations, and help scale applications by distributing the load.
