@@ -24,4 +24,4 @@ My greatest weakness is probably my timidness, it can be hard for me to speak up
 
 ## What are your strengths?
 
-I am usually a fast-learner, 
+I am usually a fast-learner, organised and I tend to pay attention to detail.
