@@ -33,7 +33,7 @@
 
 ## Define 'std'
 
-The command “using namespace std” informs the compiler to add everything under the std namespace and inculcate them in the global namespace.
+The command "using namespace std" informs the compiler to add everything under the std namespace and inculcate them in the global namespace.
 
 ## What are references in C++?
 
