@@ -32,3 +32,8 @@ This helps remove load from the server.
 ### What is URI?
 Uniform Resource Identifier is used for identifying each resource of the REST architecture.
 For REST services, the server typically performs resource identification by using a Uniform Resource Locator (URL).
+
+### CORS
+Cross-Origin Resource Sharing is a browser security mechanism that blocks a webpage
+from making requests to a different origin (different domain, protocol, or port)
+unless that server explicitly allows it via response headers like Access-Control-Allow-Origin.
